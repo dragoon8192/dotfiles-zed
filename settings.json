@@ -7,135 +7,140 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "project_panel": {
-    "dock": "left",
-  },
-  "outline_panel": {
-    "dock": "left",
-  },
-  "collaboration_panel": {
-    "dock": "left",
-  },
-  "git_panel": {
-    "dock": "left",
-  },
-  "agent_servers": {
-    "gemini": {
-      "type": "registry",
+    "diff_view_style": "unified",
+    "project_panel": {
+        "dock": "left"
     },
-  },
-  "indent_guides": {
-    "active_line_width": 2,
-  },
-  "git": {
-    "inline_blame": {
-      "show_commit_summary": true,
+    "outline_panel": {
+        "dock": "left"
     },
-  },
-  "ssh_connections": [
-    {
-      "host": "code-tester.devpod",
-      "projects": [],
+    "collaboration_panel": {
+        "dock": "left"
     },
-  ],
-  "wsl_connections": [
-    {
-      "distro_name": "Ubuntu",
-      "user": null,
-      "projects": [],
+    "git_panel": {
+        "group_by": "none",
+        "tree_view": true,
+        "dock": "left"
     },
-  ],
-  "agent": {
-    "dock": "right",
-    "tool_permissions": {
-      "default": "allow",
+    "agent_servers": {
+        "gemini": {
+            "type": "registry"
+        }
     },
-    "default_profile": "write",
-    "model_parameters": [],
-    "default_model": {
-      "provider": "google",
-      "model": "gemini-3-flash",
+    "indent_guides": {
+        "active_line_width": 2
     },
-  },
-  "load_direnv": "shell_hook",
-  "vim_mode": true,
-  "use_autoclose": false,
-  "ui_font_size": 16,
-  "show_whitespaces": "all",
-  "buffer_font_size": 16,
-  "buffer_font_family": "HackGen Console NF",
-  "soft_wrap": "none",
-  "theme": {
-    "mode": "system",
-    "light": "Ayu Light",
-    "dark": "One Dark",
-  },
-  "file_types": { "Dockerfile": ["Dockerfile", "Dockerfile.*"] },
-  "languages": {
-    "Rust": { "language_servers": ["rust-analyzer"] },
-    "JSON": { "tab_size": 2, "format_on_save": "off" },
-    "JavaScript": { "tab_size": 2, "formatter": "language_server" },
-    "YAML": { "tab_size": 2, "formatter": "language_server" },
-    "Nix": {
-      "language_servers": ["nixd", "!nil"],
-      "formatter": { "external": { "command": "nixfmt" } },
+    "git": {
+        "inline_blame": {
+            "show_commit_summary": true
+        }
     },
-  },
-  "lsp": {
-    "vtsls": {
-      "settings": {
-        "typescript": {
-          "updateImportsOnFileMove": {
-            "enabled": "always",
-          },
+    "ssh_connections": [
+        {
+            "host": "code-tester.devpod",
+            "projects": []
+        }
+    ],
+    "wsl_connections": [
+        {
+            "distro_name": "Ubuntu",
+            "user": null,
+            "projects": []
+        }
+    ],
+    "agent": {
+        "dock": "right",
+        "tool_permissions": {
+            "default": "allow"
         },
-        "javascript": {
-          "updateImportsOnFileMove": {
-            "enabled": "always",
-          },
-        },
-      },
-      "enable_lsp_tasks": true,
+        "default_profile": "write",
+        "model_parameters": [],
+        "default_model": {
+            "effort": "high",
+            "enable_thinking": true,
+            "provider": "google",
+            "model": "gemini-3-flash-preview"
+        }
     },
-    "rust-analyzer": {
-      "initialization_options": {
-        "check": {
-          // "features": ["ssr"]
-        },
-        // leptos
-        "rustfmt": {
-          "overrideCommand": ["leptosfmt", "--stdin", "--rustfmt"],
-        },
-        "procMacro": {
-          "ignored": {
-            "leptos": [
-              // "component",
-              "server",
-            ],
-          },
-        },
-      },
+    "load_direnv": "shell_hook",
+    "vim_mode": true,
+    "use_autoclose": false,
+    "ui_font_size": 16,
+    "show_whitespaces": "all",
+    "buffer_font_size": 16,
+    "buffer_font_family": "HackGen Console NF",
+    "soft_wrap": "none",
+    "theme": {
+        "mode": "system",
+        "light": "Ayu Light",
+        "dark": "One Dark"
     },
-    "json-language-server": {
-      "settings": {
-        "editor": {
-          "tabSize": 2,
-        },
-      },
+    "file_types": { "Dockerfile": ["Dockerfile", "Dockerfile.*"] },
+    "languages": {
+        "Rust": { "language_servers": ["rust-analyzer"] },
+        "JSON": { "tab_size": 2, "format_on_save": "off" },
+        "JavaScript": { "tab_size": 2, "formatter": "language_server" },
+        "YAML": { "tab_size": 2, "formatter": "language_server" },
+        "Nix": {
+            "language_servers": ["nixd", "!nil"],
+            "formatter": { "external": { "command": "nixfmt" } }
+        }
     },
-    "yaml-language-server": {
-      "settings": {
-        "editor": {
-          "tabSize": 2,
+    "lsp": {
+        "vtsls": {
+            "settings": {
+                "typescript": {
+                    "updateImportsOnFileMove": {
+                        "enabled": "always"
+                    }
+                },
+                "javascript": {
+                    "updateImportsOnFileMove": {
+                        "enabled": "always"
+                    }
+                }
+            },
+            "enable_lsp_tasks": true
         },
-      },
-    },
-    "nixd": {
-      "initialization_options": {
-        "formatting": {
-          "command": ["nixfmt"],
+        "rust-analyzer": {
+            "initialization_options": {
+                "check": {
+                    // "features": ["ssr"]
+                },
+                // leptos
+                "rustfmt": {
+                    "overrideCommand": ["leptosfmt", "--stdin", "--rustfmt"]
+                },
+                "procMacro": {
+                    "ignored": {
+                        "leptos": [
+                            // "component",
+                            "server"
+                        ]
+                    }
+                }
+            }
         },
-      },
-    },
-  },
+        "json-language-server": {
+            "settings": {
+                "editor": {
+                    "tabSize": 2
+                }
+            }
+        },
+        "yaml-language-server": {
+            "settings": {
+                "editor": {
+                    "tabSize": 2
+                }
+            }
+        },
+        "nixd": {
+            "initialization_options": {
+                "formatting": {
+                    "command": ["nixfmt"]
+                }
+            }
+        }
+    }
 }
