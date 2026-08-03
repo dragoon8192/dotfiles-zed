@@ -1,0 +1,259 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  // # Editor
+  {
+    "context": "Editor",
+  },
+  // # Editor VimControl
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      // ## Movement
+      // ### Arrow
+      "d": "vim::Left", // h
+      "h": "vim::Down", // j
+      "t": "vim::Up", // k
+      "n": "vim::Right", // l
+      // ## Disablement
+      "shift-z shift-q": null,
+      "ctrl-space": null,
+    },
+  },
+  {
+    "context": "VimControl && !menu && !(vim_operator == d || vim_operator == y || vim_operator == c)",
+    "bindings": {
+      // ### Match
+      "s": "vim::MoveToNextMatch", // n
+      "shift-s": "vim::MoveToPreviousMatch", // shift-n
+
+      // ## Language Server
+      // ### Go to Diagnostic
+      "space ]": "editor::GoToDiagnostic",
+      "space [": "editor::GoToPreviousDiagnostic",
+      // ### Go to Definition
+      "space d": "editor::GoToDefinition",
+      // ### Code Action
+      "space a": "editor::ToggleCodeActions",
+    },
+  },
+  {
+    // # Editor VimControl vim_mode == normal
+    "context": "vim_mode == normal",
+    "bindings": {
+      // ## Cancel
+      "escape": "editor::Cancel",
+
+      // ## Operator
+      // ### Delete
+      "k": "vim::PushDelete", // d
+      "shift-k": "vim::DeleteToEndOfLine", // shift-d
+      // ### Comments
+      "space c": "vim::PushToggleComments",
+
+      // ## Workspace
+      "space w": "workspace::Save",
+      // ## Language Server
+      "space h": "editor::Hover",
+      // ## Git
+      "ctrl-g s": "git::StageAndNext",
+      "ctrl-g ctrl-s": "git::StageAndNext",
+      "ctrl-g u": "git::UnstageAndNext",
+      "ctrl-g ctrl-u": "git::UnstageAndNext",
+      "ctrl-g c": "git::ExpandCommitEditor",
+      "ctrl-g ctrl-c": "git::ExpandCommitEditor",
+
+      // "vim_operator == gc"
+
+      // ## Disablement
+      "g c": null,
+    },
+  },
+  {
+    // # Editor VimControl vim_mode == visual
+    "context": "vim_mode == visual",
+    "bindings": {
+      // ## Cancel
+      "escape": "vim::SwitchToNormalMode",
+      // ## Action
+      // ### Delete
+      "k": "vim::VisualDelete", // d
+      "shift-k": "vim::VisualDeleteLine", // shift-d
+      "x": "vim::VisualDelete",
+      // ### Comments
+      "space c": "vim::ToggleComments",
+
+      // ## Disablement
+      "g c": null,
+    },
+  },
+  {
+    // # Editor VimControl vim_mode == insert
+    "context": "vim_mode == insert",
+    "bindings": {
+      // ## Completions
+      "ctrl-x": null,
+      "ctrl-x ctrl-n": "editor::ShowCompletions",
+      "ctrl-x ctrl-p": "editor::ShowCompletions",
+
+      // ## Disablement
+      "ctrl-space": null,
+    },
+  },
+  {
+    "context": "((GitCommit || CommitEditor) > Editor) && (vim_mode == normal || vim_mode == insert)",
+    "bindings": {
+      "ctrl-g a": "git::GenerateCommitMessage",
+    },
+  },
+  {
+    "context": "GitPanel || ProjectPanel || CollabPanel || OutlinePanel || ChatPanel || VimControl || EmptyPane || SharedScreen || MarkdownPreview || KeyContextView",
+    "bindings": {
+      // # Window
+      "ctrl-w": null,
+      "ctrl-w t": "workspace::ActivatePaneUp",
+      "ctrl-w h": "workspace::ActivatePaneDown",
+      "ctrl-w d": "workspace::ActivatePaneLeft",
+      "ctrl-w n": "workspace::ActivatePaneRight",
+      "ctrl-w ctrl-t": "workspace::ActivatePaneUp",
+      "ctrl-w ctrl-h": "workspace::ActivatePaneDown",
+      "ctrl-w ctrl-d": "workspace::ActivatePaneLeft",
+      "ctrl-w ctrl-n": "workspace::ActivatePaneRight",
+
+      // ### Pane (Tab)
+      "ctrl-t": "pane::ActivateNextItem",
+      "ctrl-shift-t": "pane::ActivatePreviousItem",
+
+      // ## Dock
+      "ctrl-d d": "workspace::ToggleLeftDock",
+      "ctrl-d h": "workspace::ToggleBottomDock",
+      "ctrl-d s": "workspace::ToggleRightDock",
+
+      // ### Git Panel
+      "ctrl-d g": "git_panel::ToggleFocus",
+      "ctrl-d ctrl-g": "git_panel::ToggleFocus",
+      "ctrl-d shift-g": "workspace::CloseActiveDock",
+      // ### Outline
+      "ctrl-d o": "outline_panel::ToggleFocus",
+      "ctrl-d ctrl-o": "outline_panel::ToggleFocus",
+      "ctrl-d shift-o": "workspace::CloseActiveDock",
+      // ### Project
+      "ctrl-d p": "project_panel::ToggleFocus",
+      "ctrl-d ctrl-p": "project_panel::ToggleFocus",
+      "ctrl-d shift-p": "workspace::CloseActiveDock",
+    },
+  },
+  {
+    "context": "vim_operator == d", // k
+    "bindings": {
+      "k": "vim::CurrentLine",
+      "s": "vim::PushDeleteSurrounds",
+      // "o": "editor::ToggleSelectedDiffHunks", // "d o"
+      // "shift-o": "git::ToggleStaged",
+      // "p": "git::Restore", // "d p"
+      // "u": "git::StageAndNext", // "d u"
+      // "shift-u": "git::UnstageAndNext" // "d shift-u"
+      "o": null,
+      "shift-o": null,
+      "p": null,
+      "u": null,
+      "shift-u": null,
+    },
+  },
+  {
+    "context": "vim_mode == insert",
+    "bindings": {
+      "h h": "vim::NormalBefore",
+    },
+  },
+  {
+    "context": "GitPanel && ChangesList && !GitBranchSelector",
+    "use_key_equivalents": true,
+    "bindings": {
+      // # Movement
+      // d -> h
+      // h -> j
+      "t": "menu::SelectPrevious",
+      "h": "menu::SelectNext",
+      "g g": "menu::SelectFirst",
+      "shift-g": "menu::SelectLast",
+      "g f": "menu::Confirm",
+      "i": "git_panel::FocusEditor",
+      "ctrl-g c": "git_panel::FocusEditor",
+      "ctrl-g ctrl-c": "git_panel::FocusEditor",
+      "x": "git::ToggleStaged",
+      "shift-x": "git::StageAll",
+      "shift-u": "git::UnstageAll",
+    },
+  },
+  {
+    // netrw compatibility
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      ":": "command_palette::Toggle",
+      // ## Movement
+      "d": "project_panel::CollapseSelectedEntry", // h
+      "h": "menu::SelectNext", // j
+      "t": "menu::SelectPrevious", // k
+      "n": "project_panel::ExpandSelectedEntry", // l
+      // ## New
+      "i": "project_panel::NewFile",
+      "/": "project_panel::NewSearchInDirectory",
+      "o": "project_panel::NewDirectory",
+      // ## Open
+      "enter": "project_panel::OpenPermanent",
+      "escape": "project_panel::ToggleFocus",
+      // ## Action
+      "k k": "project_panel::Cut",
+      "y y": "project_panel::Copy",
+      "shift-k": "project_panel::Delete",
+      "p": "project_panel::Paste",
+      "r r": "project_panel::Rename",
+      "v": "project_panel::OpenPermanent",
+      "x": "project_panel::RevealInFileManager",
+      "s": "project_panel::OpenWithSystem",
+      "] c": "project_panel::SelectNextGitEntry",
+      "[ c": "project_panel::SelectPrevGitEntry",
+      "] d": "project_panel::SelectNextDiagnostic",
+      "[ d": "project_panel::SelectPrevDiagnostic",
+      "}": "project_panel::SelectNextDirectory",
+      "{": "project_panel::SelectPrevDirectory",
+      "shift-g": "menu::SelectLast",
+      "g g": "menu::SelectFirst",
+      "-": "project_panel::SelectParent",
+    },
+  },
+  {
+    "context": "OutlinePanel && not_editing",
+    "bindings": {
+      // ## Movement
+      "h": "menu::SelectNext", // j
+      "t": "menu::SelectPrevious", // k
+      "shift-g": "menu::SelectLast",
+      "g g": "menu::SelectFirst",
+    },
+  },
+  {
+    "context": "GitPanel",
+    "bindings": {
+      "ctrl-space": null,
+    },
+  },
+  {
+    "context": "GitDiff > Editor",
+    "bindings": {
+      "ctrl-space": null,
+    },
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-space": null,
+    },
+  },
+]
