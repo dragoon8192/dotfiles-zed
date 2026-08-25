@@ -61,8 +61,12 @@
             // ## Language Server
             "space h": "editor::Hover",
             // ## Git
+            "ctrl-g shift-s": "git::StageAll",
+            "ctrl-g ctrl-shift-s": "git::StageAll",
             "ctrl-g s": "git::StageAndNext",
             "ctrl-g ctrl-s": "git::StageAndNext",
+            "ctrl-g shift-u": "git::UnstageAll",
+            "ctrl-g ctrl-shift-u": "git::UnstageAll",
             "ctrl-g u": "git::UnstageAndNext",
             "ctrl-g ctrl-u": "git::UnstageAndNext",
             "ctrl-g c": "git::ExpandCommitEditor",
