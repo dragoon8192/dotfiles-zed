@@ -51,6 +51,11 @@
     "agent": {
         "dock": "right",
         "tool_permissions": {
+            "tools": {
+                "write_file": {
+                    "default": "allow"
+                }
+            },
             "default": "allow"
         },
         "default_profile": "write",
