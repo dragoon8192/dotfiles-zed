@@ -238,10 +238,20 @@
             "g g": "menu::SelectFirst"
         }
     },
+    // GitPanel
     {
         "context": "GitPanel",
         "bindings": {
-            "ctrl-space": null
+            "ctrl-space": null,
+            "ctrl-c r": "git::SelectRepo",
+            "ctrl-c ctrl-r": "git::SelectRepo",
+            "ctrl-c b": "git::Switch",
+            "ctrl-c ctrl-b": "git::Switch",
+        }
+    },
+    {
+        "context": "GitRepositorySelector",
+        "bindings": {
         }
     },
     {
