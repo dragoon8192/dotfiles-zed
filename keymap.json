@@ -283,10 +283,11 @@
     },
     // # AcpThread
     {
-        "context": "AcpThread > Editor",
+        "context": "AcpThread || AcpThread > Editor",
         "bindings": {
             // ## Disablement
-            "ctrl-i": null
+            "ctrl-i": null,
+            "shift-tab": null
         }
     }
 ]
