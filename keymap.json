@@ -77,10 +77,14 @@
             // ## Disablement
             "g c": null,
 
-            // File Finder
+            // ## Project
+            // ### File Finder
             "ctrl-p": null,
             "ctrl-p s": "file_finder::Toggle",
             "ctrl-p ctrl-s": "file_finder::Toggle",
+            // ### Diagnostic
+            "ctrl-p d": "diagnostics::Deploy",
+            "ctrl-p ctrl-d":  "diagnostics::Deploy",
         }
     },
     {
