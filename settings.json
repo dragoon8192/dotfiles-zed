@@ -7,6 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+    "show_edit_predictions": true,
     "diff_view_style": "unified",
     "project_panel": {
         "dock": "left"
@@ -49,9 +50,18 @@
         }
     ],
     "agent": {
+        "auto_compact": {
+            "threshold": "90%"
+        },
         "dock": "right",
         "tool_permissions": {
             "tools": {
+                "edit_file": {
+                    "default": "allow"
+                },
+                "move_path": {
+                    "default": "allow"
+                },
                 "write_file": {
                     "default": "allow"
                 }
