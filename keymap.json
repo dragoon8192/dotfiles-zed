@@ -75,7 +75,12 @@
             // "vim_operator == gc"
 
             // ## Disablement
-            "g c": null
+            "g c": null,
+
+            // File Finder
+            "ctrl-p": null,
+            "ctrl-p s": "file_finder::Toggle",
+            "ctrl-p ctrl-s": "file_finder::Toggle",
         }
     },
     {
