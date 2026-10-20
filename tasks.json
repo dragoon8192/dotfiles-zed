@@ -1,0 +1,10 @@
+[
+    {
+        "label": "Normalize Parens (全角かっこを半角に置換)",
+        "command": "sed -i 's/（/ (/g; s/）/) /g' \"$ZED_FILE\"",
+        "use_new_terminal": false,
+        "allow_concurrent_runs": false,
+        "reveal": "never",
+        "hide": "always",
+    }
+]
