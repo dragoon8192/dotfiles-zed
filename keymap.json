@@ -74,6 +74,48 @@
         }
     },
 
+    // # Delete Operator
+    //
+    // | Default   | Dvorak    | Action            |
+    // | :-------- | :-------- | :-----------------|
+    // | "d"       | "k"       | PushDelete        |
+    // | "shift-d" | "shift-k" | DeleteToEndOfLine |
+    //
+    // ## normal
+    {
+        "context": "vim_mode == normal",
+        "bindings": {
+            "k": "vim::PushDelete",
+            "shift-k": "vim::DeleteToEndOfLine",
+        }
+    },
+    // ## operator
+    {
+        "context": "vim_operator == d",
+        "bindings": {
+            "k": "vim::CurrentLine",
+            "s": "vim::PushDeleteSurrounds",
+            // "editor::ToggleSelectedDiffHunks"
+            "o": null,
+            // "git::ToggleStaged",
+            "shift-o": null,
+            // "git::Restore"
+            "p": null,
+            // "git::StageAndNext"
+            "u": null,
+            // "git::UnstageAndNext"
+            "shift-u": null
+        }
+    },
+    // ## visual
+    {
+        "context": "vim_mode == visual",
+        "bindings": {
+            "k": "vim::VisualDelete",
+            "shift-k": "vim::VisualDeleteLine",
+        }
+    },
+
     {
         "context": "VimControl && !menu && !(vim_operator == d || vim_operator == y || vim_operator == c)",
         "bindings": {
@@ -95,13 +137,7 @@
         // # Editor VimControl vim_mode == normal
         "context": "vim_mode == normal",
         "bindings": {
-            // ## Cancel
-            "escape": "editor::Cancel",
-
             // ## Operator
-            // ### Delete
-            "k": "vim::PushDelete", // d
-            "shift-k": "vim::DeleteToEndOfLine", // shift-d
             // ### Comments
             "g c": null,
             "space c": "vim::PushToggleComments",
@@ -135,13 +171,7 @@
         // # Editor VimControl vim_mode == visual
         "context": "vim_mode == visual",
         "bindings": {
-            // ## Cancel
-            "escape": "vim::SwitchToNormalMode",
             // ## Action
-            // ### Delete
-            "k": "vim::VisualDelete", // d
-            "shift-k": "vim::VisualDeleteLine", // shift-d
-            "x": "vim::VisualDelete",
             // ### Comments
             "g c": null,
             "space c": "vim::ToggleComments",
@@ -200,23 +230,6 @@
             "ctrl-d p": "project_panel::ToggleFocus",
             "ctrl-d ctrl-p": "project_panel::ToggleFocus",
             "ctrl-d shift-p": "workspace::CloseActiveDock"
-        }
-    },
-    {
-        "context": "vim_operator == d", // k
-        "bindings": {
-            "k": "vim::CurrentLine",
-            "s": "vim::PushDeleteSurrounds",
-            // "editor::ToggleSelectedDiffHunks"
-            "o": null,
-            // "git::ToggleStaged",
-            "shift-o": null,
-            // "git::Restore"
-            "p": null,
-            // "git::StageAndNext"
-            "u": null,
-            // "git::UnstageAndNext"
-            "shift-u": null
         }
     },
     {
