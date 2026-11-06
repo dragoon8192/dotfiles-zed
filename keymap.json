@@ -116,13 +116,25 @@
         }
     },
 
+    // # Match
+    //
+    // | Default   | Dvorak    | Action            |
+    // | :-------- | :-------- | :-----------------|
+    // | "n"       | "s"       | PushDelete        |
+    // | "shift-n" | "shift-s" | DeleteToEndOfLine |
+    //
+    // ## normal
+    {
+        "context": "VimControl && !menu && !vim_operator",
+        "bindings": {
+            "s": "vim::MoveToNextMatch", // n
+            "shift-s": "vim::MoveToPreviousMatch", // shift-n
+        }
+    },
+
     {
         "context": "VimControl && !menu && !(vim_operator == d || vim_operator == y || vim_operator == c)",
         "bindings": {
-            // ### Match
-            "s": "vim::MoveToNextMatch", // n
-            "shift-s": "vim::MoveToPreviousMatch", // shift-n
-
             // ## Language Server
             // ### Go to Diagnostic
             "space ]": "editor::GoToDiagnostic",
