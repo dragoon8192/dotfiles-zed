@@ -22,7 +22,7 @@
         }
     },
 
-    // # Movement
+    // # Cursor Movement
     //
     // Dvorak 配列に変更
     //
@@ -246,19 +246,27 @@
         }
     },
 
+    // # Project Action
+    //
+    // - Prefix: `ctrl-p`
+    // - `ctrl` のホールドを許容
+    //
+    // | Custom    | Action                |
+    // | :-------- | :-------------------- |
+    // | `f`       | `file_finder::Toggle` |
+    // | `d`       | `diagnostics::Deploy` |
+    //
     {
-        // # Editor VimControl vim_mode == normal
         "context": "vim_mode == normal",
         "bindings": {
-            // ### File Finder
             "ctrl-p": null,
-            "ctrl-p s": "file_finder::Toggle",
-            "ctrl-p ctrl-s": "file_finder::Toggle",
-            // ### Diagnostic
+            "ctrl-p f": "file_finder::Toggle",
+            "ctrl-p ctrl-f": "file_finder::Toggle",
             "ctrl-p d": "diagnostics::Deploy",
             "ctrl-p ctrl-d": "diagnostics::Deploy"
         }
     },
+
     {
         "context": "(VimControl && !menu) || Editor",
         "bindings": {
