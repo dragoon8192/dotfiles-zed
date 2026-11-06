@@ -138,17 +138,25 @@
 
     // # Comments
     //
-    // | Default   | Custom    | Action                    |
-    // | :-------- | :-------- | :------------------------ |
-    // | `g c`     | `space c` | `vim::PushToggleComments` |
+    // | Default   | Custom    | Action         |
+    // | :-------- | :-------- | :------------- |
+    // | `g c`     | `space c` | ToggleComments |
     //
     {
-        "context": "vim_mode == normal || vim_mode == visual",
+        "context": "vim_mode == normal",
         "bindings": {
             "g c": null,
             "space c": "vim::PushToggleComments"
         }
     },
+    {
+        "context": "vim_mode == visual",
+        "bindings": {
+            "g c": null,
+            "space c": "vim::ToggleComments",
+        }
+    },
+
 
     // # Completions
     //
