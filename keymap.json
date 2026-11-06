@@ -6,23 +6,50 @@
 // To see the default key bindings run `zed: open default keymap`
 // from the command palette.
 [
-    // # Editor
+    // # Disablement
     {
-        "context": "Editor"
+        "context": "Workspace",
+        "bindings": {
+            "ctrl-t": null
+        }
     },
-    // # Editor VimControl
+    {
+        "context": "Editor",
+        "bindings": {
+            // "pane:CloseActiveItem"
+            "shift-z shift-q": null,
+            "ctrl-t": null,
+            // "editor:ShowCompletions"
+            "ctrl-space": null
+        }
+    },
+    // # Movement
+    //
+    // | Action       | Default | Dvorak |
+    // | :----------- | :------ | :----- |
+    // | "vim::Left"  | h       | d      |
+    // | "vim::Down"  | j       | h      |
+    // | "vim::Up"    | k       | t      |
+    // | "vim::Right" | l       | n      |
+    //
+    // ## Editor
     {
         "context": "VimControl && !menu",
         "bindings": {
-            // ## Movement
-            // ### Arrow
-            "d": "vim::Left", // h
-            "h": "vim::Down", // j
-            "t": "vim::Up", // k
-            "n": "vim::Right", // l
-            // ## Disablement
-            "shift-z shift-q": null,
-            "ctrl-space": null
+            "d": "vim::Left",
+            "h": "vim::Down",
+            "t": "vim::Up",
+            "n": "vim::Right",
+        }
+    },
+    // ## ProjectPanel
+    {
+        "context": "ProjectPanel && not_editing",
+        "bindings": {
+          "d": "project_panel::CollapseSelectedEntry", // h
+          "h": "menu::SelectNext", // j
+          "t": "menu::SelectPrevious", // k
+          "n": "project_panel::ExpandSelectedEntry", // l
         }
     },
     {
@@ -54,6 +81,7 @@
             "k": "vim::PushDelete", // d
             "shift-k": "vim::DeleteToEndOfLine", // shift-d
             // ### Comments
+            "g c": null,
             "space c": "vim::PushToggleComments",
 
             // ## Workspace
@@ -72,12 +100,6 @@
             "ctrl-g c": "git::ExpandCommitEditor",
             "ctrl-g ctrl-c": "git::ExpandCommitEditor",
 
-            // "vim_operator == gc"
-
-            // ## Disablement
-            "g c": null,
-
-            // ## Project
             // ### File Finder
             "ctrl-p": null,
             "ctrl-p s": "file_finder::Toggle",
@@ -99,10 +121,9 @@
             "shift-k": "vim::VisualDeleteLine", // shift-d
             "x": "vim::VisualDelete",
             // ### Comments
+            "g c": null,
             "space c": "vim::ToggleComments",
 
-            // ## Disablement
-            "g c": null
         }
     },
     {
@@ -114,8 +135,6 @@
             "ctrl-x ctrl-n": "editor::ShowCompletions",
             "ctrl-x ctrl-p": "editor::ShowCompletions",
 
-            // ## Disablement
-            "ctrl-space": null
         }
     },
     {
@@ -125,7 +144,7 @@
         }
     },
     {
-        "context": "GitPanel || ProjectPanel || CollabPanel || OutlinePanel || ChatPanel || VimControl || EmptyPane || SharedScreen || MarkdownPreview || KeyContextView",
+        "context": "(VimControl && !menu) || Editor",
         "bindings": {
             // # Window
             "ctrl-w": null,
@@ -166,15 +185,15 @@
         "bindings": {
             "k": "vim::CurrentLine",
             "s": "vim::PushDeleteSurrounds",
-            // "o": "editor::ToggleSelectedDiffHunks", // "d o"
-            // "shift-o": "git::ToggleStaged",
-            // "p": "git::Restore", // "d p"
-            // "u": "git::StageAndNext", // "d u"
-            // "shift-u": "git::UnstageAndNext" // "d shift-u"
+            // "editor::ToggleSelectedDiffHunks"
             "o": null,
+            // "git::ToggleStaged",
             "shift-o": null,
+            // "git::Restore"
             "p": null,
+            // "git::StageAndNext"
             "u": null,
+            // "git::UnstageAndNext"
             "shift-u": null
         }
     },
@@ -209,11 +228,6 @@
         "context": "ProjectPanel && not_editing",
         "bindings": {
             ":": "command_palette::Toggle",
-            // ## Movement
-            "d": "project_panel::CollapseSelectedEntry", // h
-            "h": "menu::SelectNext", // j
-            "t": "menu::SelectPrevious", // k
-            "n": "project_panel::ExpandSelectedEntry", // l
             // ## New
             "i": "project_panel::NewFile",
             "/": "project_panel::NewSearchInDirectory",
@@ -265,18 +279,6 @@
     {
         "context": "GitRepositorySelector",
         "bindings": {
-        }
-    },
-    {
-        "context": "GitDiff > Editor",
-        "bindings": {
-            "ctrl-space": null
-        }
-    },
-    {
-        "context": "Editor",
-        "bindings": {
-            "ctrl-space": null
         }
     },
     {
