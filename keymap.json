@@ -31,6 +31,13 @@
             "shift-g": "vim::EndOfDocument"
         }
     },
+    // - `h h` でノーマルに戻る
+    {
+        "context": "vim_mode == insert",
+        "bindings": {
+            "h h": "vim::NormalBefore"
+        }
+    },
     // ## menu
     {
         "context": "menu && not_editing",
@@ -313,33 +320,45 @@
         }
     },
 
+    // # Dock Movement
+    //
+    // - Prefix: `ctrl-d`
+    // - `ctrl` のホールドを許容
+    //
+    // | Custom    | Action                        |
+    // | :-------- | :---------------------------- |
+    // | `d`       | `workspace::ToggleLeftDock`   |
+    // | `h`       | `workspace::ToggleBottomDock` |
+    // | `t`       | `workspace::ToggleAllDocks`   |
+    // | `n`       | `workspace::ToggleRightDock`  |
+    // | `q`       | `workspace::CloseActiveDock`  |
+    // | `g`       | `git_panel::ToggleFocus`      |
+    // | `o`       | `outline_panel::ToggleFocus`  |
+    // | `p`       | `project_panel::ToggleFocus`  |
+    //
     {
-        "context": "(VimControl && !menu) || Editor",
+        "context": "(VimControl && !menu) || !Editor",
         "bindings": {
 
-            // ## Dock
             "ctrl-d d": "workspace::ToggleLeftDock",
+            "ctrl-d ctrl-d": "workspace::ToggleLeftDock",
             "ctrl-d h": "workspace::ToggleBottomDock",
-            "ctrl-d s": "workspace::ToggleRightDock",
+            "ctrl-d ctrl-h": "workspace::ToggleBottomDock",
+            "ctrl-d t": "workspace::ToggleAllDocks",
+            "ctrl-d ctrl-t": "workspace::ToggleAllDocks",
+            "ctrl-d n": "workspace::ToggleRightDock",
+            "ctrl-d ctrl-n": "workspace::ToggleRightDock",
+            "ctrl-d q": "workspace::CloseActiveDock",
+            "ctrl-d ctrl-q": "workspace::CloseActiveDock",
 
-            // ### Git Panel
             "ctrl-d g": "git_panel::ToggleFocus",
             "ctrl-d ctrl-g": "git_panel::ToggleFocus",
-            "ctrl-d shift-g": "workspace::CloseActiveDock",
-            // ### Outline
+
             "ctrl-d o": "outline_panel::ToggleFocus",
             "ctrl-d ctrl-o": "outline_panel::ToggleFocus",
-            "ctrl-d shift-o": "workspace::CloseActiveDock",
-            // ### Project
+
             "ctrl-d p": "project_panel::ToggleFocus",
             "ctrl-d ctrl-p": "project_panel::ToggleFocus",
-            "ctrl-d shift-p": "workspace::CloseActiveDock"
-        }
-    },
-    {
-        "context": "vim_mode == insert",
-        "bindings": {
-            "h h": "vim::NormalBefore"
         }
     },
     {
