@@ -26,7 +26,9 @@
 
     // # Movement
     //
-    // | Default  | Dvorak    | Editor Action          | menu Action            |
+    // Dvorak 配列に変更
+    //
+    // | Default  | Custom    | Editor Action          | menu Action            |
     // | :------- | :-------- | :--------------------- | :--------------------- |
     // | "h"      | "d"       | "vim::Left"            | Collapse               |
     // | "j"      | "h"       | "vim::Down"            | Expand                 |
@@ -76,8 +78,10 @@
 
     // # Delete Operator
     //
-    // | Default   | Dvorak    | Action            |
-    // | :-------- | :-------- | :-----------------|
+    // Dvorak 配列に変更
+    //
+    // | Default   | Custom    | Action            |
+    // | :-------- | :-------- | :---------------- |
     // | "d"       | "k"       | PushDelete        |
     // | "shift-d" | "shift-k" | DeleteToEndOfLine |
     //
@@ -118,8 +122,10 @@
 
     // # Match
     //
-    // | Default   | Dvorak    | Action            |
-    // | :-------- | :-------- | :-----------------|
+    // Dvorak 配列に変更
+    //
+    // | Default   | Custom    | Action            |
+    // | :-------- | :-------- | :---------------- |
     // | "n"       | "s"       | PushDelete        |
     // | "shift-n" | "shift-s" | DeleteToEndOfLine |
     //
