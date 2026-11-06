@@ -265,7 +265,7 @@
     // | (`Z Q`) | `q`     | `pane::CloseActiveItem`          |
     //
     {
-        "context": "(VimControl && !menu) || !Editor",
+        "context": "Workspace || (VimControl && !menu) || !Editor",
         "bindings": {
             "ctrl-w": null,
             "ctrl-w d": "workspace::ActivatePaneLeft",
@@ -286,20 +286,26 @@
     // - Prefix: `ctrl-t`
     // - `ctrl` のホールドを許容
     //
-    // | Default | Custom  | Action                       |
-    // | :------ | :------ | :--------------------------- |
-    // | (`[ b`) | `d`     | `pane::ActivatePreviousItem` |
-    // | (`] b`) | `n`     | `pane::ActivateNextItem`     |
-    // | (`Z Q`) | `q`     | `pane::CloseActiveItem`      |
+    // | Default | Custom    | Action                       |
+    // | :------ | :-------- | :--------------------------- |
+    // | (`[ b`) | `d`       | `pane::ActivatePreviousItem` |
+    // | (`] b`) | `n`       | `pane::ActivateNextItem`     |
+    // | (`[ B`) | `shift-d` | `pane::ActivateItem` 0       |
+    // | (`] B`) | `shift-n` | `pane::ActivateLastItem`     |
+    // | (`Z Q`) | `q`       | `pane::CloseActiveItem`      |
     //
     {
-        "context": "(VimControl && !menu) || !Editor",
+        "context": "Workspace || (VimControl && !menu) || !Editor",
         "bindings": {
             "ctrl-t": null,
             "ctrl-t d": "pane::ActivatePreviousItem",
             "ctrl-t ctrl-d": "pane::ActivatePreviousItem",
             "ctrl-t n": "pane::ActivateNextItem",
             "ctrl-t ctrl-n": "pane::ActivateNextItem",
+            "ctrl-t shift-d": ["pane::ActivateItem", 0],
+            "ctrl-t ctrl-shift-d": ["pane::ActivateItem", 0],
+            "ctrl-t shift-n": "pane::ActivateLastItem",
+            "ctrl-t ctrl-shift-n": "pane::ActivateLastItem",
 
             "shift-z shift-q": null,
             "ctrl-t q": "pane::CloseActiveItem",
