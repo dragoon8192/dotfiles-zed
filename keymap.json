@@ -23,6 +23,7 @@
     {
         "context": "VimControl && !menu",
         "bindings": {
+            "l": null,
             "d": "vim::Left",
             "h": "vim::Down",
             "t": "vim::Up",
@@ -40,10 +41,13 @@
     },
     // ## menu
     {
-        "context": "menu && not_editing",
+        "context": "menu && !editing",
         "bindings": {
+            "l": null,
+            "d": null,
             "h": "menu::SelectNext",
             "t": "menu::SelectPrevious",
+            "n": null,
             "shift-g": "menu::SelectLast",
             "g g": "menu::SelectFirst"
         }
@@ -51,16 +55,13 @@
     {
         "context": "GitPanel && ChangesList && !GitBranchSelector && !GitRepositorySelector",
         "bindings": {
-            "l": null,
             "d": "git_panel::CollapseSelectedEntry",
-            "h": "menu::SelectNext",
-            "t": "menu::SelectPrevious",
             "n": "git_panel::ExpandSelectedEntry",
         }
     },
     // ### ProjectPanel
     {
-        "context": "ProjectPanel && not_editing",
+        "context": "ProjectPanel && !editing",
         "bindings": {
             "d": "project_panel::CollapseSelectedEntry",
             "n": "project_panel::ExpandSelectedEntry"
@@ -68,7 +69,7 @@
     },
     // ### OutlinePanel
     {
-        "context": "OutlinePanel && not_editing",
+        "context": "OutlinePanel && !editing",
         "bindings": {
             "d": "outline_panel::CollapseSelectedEntry",
             "n": "outline_panel::ExpandSelectedEntry"
@@ -130,7 +131,7 @@
     //
     // ## normal
     {
-        "context": "VimControl && !menu && !vim_operator",
+        "context": "vim_mode == normal",
         "bindings": {
             "s": "vim::MoveToNextMatch", // n
             "shift-s": "vim::MoveToPreviousMatch" // shift-n
@@ -385,7 +386,7 @@
     },
     {
         // netrw compatibility
-        "context": "ProjectPanel && not_editing",
+        "context": "ProjectPanel && !editing",
         "bindings": {
             ":": "command_palette::Toggle",
             // ## New
