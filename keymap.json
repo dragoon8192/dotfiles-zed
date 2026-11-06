@@ -48,6 +48,16 @@
             "g g": "menu::SelectFirst"
         }
     },
+    {
+        "context": "GitPanel && ChangesList && !GitBranchSelector && !GitRepositorySelector",
+        "bindings": {
+            "l": null,
+            "d": "git_panel::CollapseSelectedEntry",
+            "h": "menu::SelectNext",
+            "t": "menu::SelectPrevious",
+            "n": "git_panel::ExpandSelectedEntry",
+        }
+    },
     // ### ProjectPanel
     {
         "context": "ProjectPanel && not_editing",
