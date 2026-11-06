@@ -262,6 +262,7 @@
     // | `j`     | `h`     | `workspace::ActivePatePaneDown`  |
     // | `k`     | `t`     | `workspace::ActivePatePaneUp`    |
     // | `l`     | `n`     | `workspace::ActivePatePaneRight` |
+    // | (`Z Q`) | `q`     | `pane::CloseActiveItem`          |
     //
     {
         "context": "(VimControl && !menu) || !Editor",
@@ -275,6 +276,8 @@
             "ctrl-w ctrl-t": "workspace::ActivatePaneUp",
             "ctrl-w n": "workspace::ActivatePaneRight",
             "ctrl-w ctrl-n": "workspace::ActivatePaneRight",
+            "ctrl-w q": "pane::CloseActiveItem",
+            "ctrl-w ctrl-q": "pane::CloseActiveItem",
         }
     },
 
