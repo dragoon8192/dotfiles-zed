@@ -152,17 +152,24 @@
         }
     },
 
+    // # Language Server
+    //
+    // | Default   | Custom    | Action                           |
+    // | :-------- | :-------- | :------------------------------- |
+    // |           | "space ]" | "editor::GoToDiagnostic"         |
+    // |           | "space [" | "editor::GoToPreviousDiagnostic" |
+    // |           | "space d" | "editor::GoToDefinition"         |
+    // |           | "space a" | "editor::ToggleCodeActions"      |
+    // |           | "space h" | "editor::Hobar"                  |
+    //
     {
-        "context": "VimControl && !menu && !(vim_operator == d || vim_operator == y || vim_operator == c)",
+        "context": "vim_mode == normal",
         "bindings": {
-            // ## Language Server
-            // ### Go to Diagnostic
             "space ]": "editor::GoToDiagnostic",
             "space [": "editor::GoToPreviousDiagnostic",
-            // ### Go to Definition
             "space d": "editor::GoToDefinition",
-            // ### Code Action
-            "space a": "editor::ToggleCodeActions"
+            "space a": "editor::ToggleCodeActions",
+            "space h": "editor::Hover"
         }
     },
     {
@@ -171,8 +178,6 @@
         "bindings": {
             // ## Workspace
             "space w": "workspace::Save",
-            // ## Language Server
-            "space h": "editor::Hover",
             // ## Git
             "ctrl-g shift-s": "git::StageAll",
             "ctrl-g ctrl-shift-s": "git::StageAll",
