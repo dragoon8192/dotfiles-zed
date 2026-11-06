@@ -18,7 +18,7 @@
         "bindings": {
             // "pane:CloseActiveItem"
             "shift-z shift-q": null,
-            "ctrl-t": null,
+            "ctrl-t": null
         }
     },
 
@@ -44,33 +44,33 @@
             "t": "vim::Up",
             "n": "vim::Right",
             "g g": "vim::StartOfDocument",
-            "shift-g": "vim::EndOfDocument",
+            "shift-g": "vim::EndOfDocument"
         }
     },
     // ## menu
     {
         "context": "menu && not_editing",
         "bindings": {
-          "h": "menu::SelectNext",
-          "t": "menu::SelectPrevious",
-          "shift-g": "menu::SelectLast",
-          "g g": "menu::SelectFirst"
+            "h": "menu::SelectNext",
+            "t": "menu::SelectPrevious",
+            "shift-g": "menu::SelectLast",
+            "g g": "menu::SelectFirst"
         }
     },
     // ### ProjectPanel
     {
         "context": "ProjectPanel && not_editing",
         "bindings": {
-          "d": "project_panel::CollapseSelectedEntry",
-          "n": "project_panel::ExpandSelectedEntry",
+            "d": "project_panel::CollapseSelectedEntry",
+            "n": "project_panel::ExpandSelectedEntry"
         }
     },
     // ### OutlinePanel
     {
         "context": "OutlinePanel && not_editing",
         "bindings": {
-          "d": "outline_panel::CollapseSelectedEntry",
-          "n": "outline_panel::ExpandSelectedEntry",
+            "d": "outline_panel::CollapseSelectedEntry",
+            "n": "outline_panel::ExpandSelectedEntry"
         }
     },
 
@@ -88,7 +88,7 @@
         "context": "vim_mode == normal",
         "bindings": {
             "k": "vim::PushDelete",
-            "shift-k": "vim::DeleteToEndOfLine",
+            "shift-k": "vim::DeleteToEndOfLine"
         }
     },
     // ## operator
@@ -114,7 +114,7 @@
         "context": "vim_mode == visual",
         "bindings": {
             "k": "vim::VisualDelete",
-            "shift-k": "vim::VisualDeleteLine",
+            "shift-k": "vim::VisualDeleteLine"
         }
     },
 
@@ -132,7 +132,7 @@
         "context": "VimControl && !menu && !vim_operator",
         "bindings": {
             "s": "vim::MoveToNextMatch", // n
-            "shift-s": "vim::MoveToPreviousMatch", // shift-n
+            "shift-s": "vim::MoveToPreviousMatch" // shift-n
         }
     },
 
@@ -146,7 +146,7 @@
         "context": "vim_mode == normal || vim_mode == visual",
         "bindings": {
             "g c": null,
-            "space c": "vim::PushToggleComments",
+            "space c": "vim::PushToggleComments"
         }
     },
 
@@ -161,7 +161,20 @@
     {
         "context": "vim_mode == insert",
         "bindings": {
-            "ctrl-x": "editor::ShowCompletions",
+            "ctrl-x": "editor::ShowCompletions"
+        }
+    },
+
+    // # Save
+    //
+    // | Custom    | Action            |
+    // | :-------- | :---------------- |
+    // | "space w" | "workspace::Save" |
+    //
+    {
+        "context": "vim_mode == normal",
+        "bindings": {
+            "space w": "workspace::Save"
         }
     },
 
@@ -190,8 +203,6 @@
         // # Editor VimControl vim_mode == normal
         "context": "vim_mode == normal",
         "bindings": {
-            // ## Workspace
-            "space w": "workspace::Save",
             // ## Git
             "ctrl-g shift-s": "git::StageAll",
             "ctrl-g ctrl-shift-s": "git::StageAll",
@@ -312,13 +323,12 @@
             "ctrl-c r": "git::SelectRepo",
             "ctrl-c ctrl-r": "git::SelectRepo",
             "ctrl-c b": "git::Switch",
-            "ctrl-c ctrl-b": "git::Switch",
+            "ctrl-c ctrl-b": "git::Switch"
         }
     },
     {
         "context": "GitRepositorySelector",
-        "bindings": {
-        }
+        "bindings": {}
     },
     {
         "context": "Editor && language == Markdown && vim_mode == insert",
