@@ -28,12 +28,12 @@
     //
     // | Default  | Custom    | Editor Action          | menu Action            |
     // | :------- | :-------- | :--------------------- | :--------------------- |
-    // | "h"      | "d"       | "vim::Left"            | Collapse               |
-    // | "j"      | "h"       | "vim::Down"            | Expand                 |
-    // | "k"      | "t"       | "vim::Up"              | "menu::SelectNext"     |
-    // | "l"      | "n"       | "vim::Right"           | "menu::SelectPrevious" |
-    // | "shift-g"| "shift-g" | "vim::EndOfDocument"   | "menu::SelectFirst"    |
-    // | "g g"    | "g g"     | "vim::StartOfDocument" | "menu::SelectLast"     |
+    // | `h`      | `d`       | `vim::Left`            | Collapse               |
+    // | `j`      | `h`       | `vim::Down`            | Expand                 |
+    // | `k`      | `t`       | `vim::Up`              | `menu::SelectNext`     |
+    // | `l`      | `n`       | `vim::Right`           | `menu::SelectPrevious` |
+    // | `shift-g`| `shift-g` | `vim::EndOfDocument`   | `menu::SelectFirst`    |
+    // | `g g`    | `g g`     | `vim::StartOfDocument` | `menu::SelectLast`     |
     //
     // ## Editor
     {
@@ -80,8 +80,8 @@
     //
     // | Default   | Custom    | Action            |
     // | :-------- | :-------- | :---------------- |
-    // | "d"       | "k"       | PushDelete        |
-    // | "shift-d" | "shift-k" | DeleteToEndOfLine |
+    // | `d`       | `k`       | PushDelete        |
+    // | `shift-d` | `shift-k` | DeleteToEndOfLine |
     //
     // ## normal
     {
@@ -124,8 +124,8 @@
     //
     // | Default   | Custom    | Action            |
     // | :-------- | :-------- | :---------------- |
-    // | "n"       | "s"       | PushDelete        |
-    // | "shift-n" | "shift-s" | DeleteToEndOfLine |
+    // | `n`       | `s`       | PushDelete        |
+    // | `shift-n` | `shift-s` | DeleteToEndOfLine |
     //
     // ## normal
     {
@@ -140,7 +140,7 @@
     //
     // | Default   | Custom    | Action                    |
     // | :-------- | :-------- | :------------------------ |
-    // | "g c"     | "space c" | "vim::PushToggleComments" |
+    // | `g c`     | `space c` | `vim::PushToggleComments` |
     //
     {
         "context": "vim_mode == normal || vim_mode == visual",
@@ -156,7 +156,7 @@
     //
     // | Default      | Custom    | Action                    |
     // | :----------- | :-------- | :------------------------ |
-    // | "ctrl-space" | "ctrl-x"  | "editor::ShowCompletions" |
+    // | `ctrl-space` | `ctrl-x`  | `editor::ShowCompletions` |
     //
     {
         "context": "vim_mode == insert",
@@ -169,7 +169,7 @@
     //
     // | Custom    | Action            |
     // | :-------- | :---------------- |
-    // | "space w" | "workspace::Save" |
+    // | `space w` | `workspace::Save` |
     //
     {
         "context": "vim_mode == normal",
@@ -182,11 +182,11 @@
     //
     // | Default   | Custom    | Action                           |
     // | :-------- | :-------- | :------------------------------- |
-    // |           | "space ]" | "editor::GoToDiagnostic"         |
-    // |           | "space [" | "editor::GoToPreviousDiagnostic" |
-    // |           | "space d" | "editor::GoToDefinition"         |
-    // |           | "space a" | "editor::ToggleCodeActions"      |
-    // |           | "space h" | "editor::Hobar"                  |
+    // |           | `space ]` | `editor::GoToDiagnostic`         |
+    // |           | `space [` | `editor::GoToPreviousDiagnostic` |
+    // |           | `space d` | `editor::GoToDefinition`         |
+    // |           | `space a` | `editor::ToggleCodeActions`      |
+    // |           | `space h` | `editor::Hobar`                  |
     //
     {
         "context": "vim_mode == normal",
