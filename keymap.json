@@ -267,20 +267,36 @@
         }
     },
 
+    // # Window (Pane) Movement
+    //
+    // - Prefix: `ctrl-w`
+    // - `ctrl` のホールドを許容
+    //
+    // | Default | Custom  | Action                           |
+    // | :------ | :------ | :------------------------------- |
+    // | `h`     | `d`     | `workspace::ActivatePaneLeft`    |
+    // | `j`     | `h`     | `workspace::ActivePatePaneDown`  |
+    // | `k`     | `t`     | `workspace::ActivePatePaneUp`    |
+    // | `l`     | `n`     | `workspace::ActivePatePaneRight` |
+    //
+    {
+        "context": "(VimControl && !menu) || !Editor",
+        "bindings": {
+            "ctrl-w": null,
+            "ctrl-w d": "workspace::ActivatePaneLeft",
+            "ctrl-w ctrl-d": "workspace::ActivatePaneLeft",
+            "ctrl-w h": "workspace::ActivatePaneDown",
+            "ctrl-w ctrl-h": "workspace::ActivatePaneDown",
+            "ctrl-w t": "workspace::ActivatePaneUp",
+            "ctrl-w ctrl-t": "workspace::ActivatePaneUp",
+            "ctrl-w n": "workspace::ActivatePaneRight",
+            "ctrl-w ctrl-n": "workspace::ActivatePaneRight",
+        }
+    },
+
     {
         "context": "(VimControl && !menu) || Editor",
         "bindings": {
-            // # Window
-            "ctrl-w": null,
-            "ctrl-w t": "workspace::ActivatePaneUp",
-            "ctrl-w h": "workspace::ActivatePaneDown",
-            "ctrl-w d": "workspace::ActivatePaneLeft",
-            "ctrl-w n": "workspace::ActivatePaneRight",
-            "ctrl-w ctrl-t": "workspace::ActivatePaneUp",
-            "ctrl-w ctrl-h": "workspace::ActivatePaneDown",
-            "ctrl-w ctrl-d": "workspace::ActivatePaneLeft",
-            "ctrl-w ctrl-n": "workspace::ActivatePaneRight",
-
             // ### Pane (Tab)
             "ctrl-t": "pane::ActivateNextItem",
             "ctrl-shift-t": "pane::ActivatePreviousItem",
