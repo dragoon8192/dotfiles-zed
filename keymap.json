@@ -23,14 +23,17 @@
             "ctrl-space": null
         }
     },
+
     // # Movement
     //
-    // | Action       | Default | Dvorak |
-    // | :----------- | :------ | :----- |
-    // | "vim::Left"  | h       | d      |
-    // | "vim::Down"  | j       | h      |
-    // | "vim::Up"    | k       | t      |
-    // | "vim::Right" | l       | n      |
+    // | Default  | Dvorak    | Editor Action          | menu Action            |
+    // | :------- | :-------- | :--------------------- | :--------------------- |
+    // | "h"      | "d"       | "vim::Left"            | Collapse               |
+    // | "j"      | "h"       | "vim::Down"            | Expand                 |
+    // | "k"      | "t"       | "vim::Up"              | "menu::SelectNext"     |
+    // | "l"      | "n"       | "vim::Right"           | "menu::SelectPrevious" |
+    // | "shift-g"| "shift-g" | "vim::EndOfDocument"   | "menu::SelectFirst"    |
+    // | "g g"    | "g g"     | "vim::StartOfDocument" | "menu::SelectLast"     |
     //
     // ## Editor
     {
@@ -40,18 +43,37 @@
             "h": "vim::Down",
             "t": "vim::Up",
             "n": "vim::Right",
+            "g g": "vim::StartOfDocument",
+            "shift-g": "vim::EndOfDocument",
         }
     },
-    // ## ProjectPanel
+    // ## menu
+    {
+        "context": "menu && not_editing",
+        "bindings": {
+          "h": "menu::SelectNext",
+          "t": "menu::SelectPrevious",
+          "shift-g": "menu::SelectLast",
+          "g g": "menu::SelectFirst"
+        }
+    },
+    // ### ProjectPanel
     {
         "context": "ProjectPanel && not_editing",
         "bindings": {
-          "d": "project_panel::CollapseSelectedEntry", // h
-          "h": "menu::SelectNext", // j
-          "t": "menu::SelectPrevious", // k
-          "n": "project_panel::ExpandSelectedEntry", // l
+          "d": "project_panel::CollapseSelectedEntry",
+          "n": "project_panel::ExpandSelectedEntry",
         }
     },
+    // ### OutlinePanel
+    {
+        "context": "OutlinePanel && not_editing",
+        "bindings": {
+          "d": "outline_panel::CollapseSelectedEntry",
+          "n": "outline_panel::ExpandSelectedEntry",
+        }
+    },
+
     {
         "context": "VimControl && !menu && !(vim_operator == d || vim_operator == y || vim_operator == c)",
         "bindings": {
@@ -207,14 +229,6 @@
         "context": "GitPanel && ChangesList && !GitBranchSelector",
         "use_key_equivalents": true,
         "bindings": {
-            // # Movement
-            // d -> h
-            // h -> j
-            "t": "menu::SelectPrevious",
-            "h": "menu::SelectNext",
-            "g g": "menu::SelectFirst",
-            "shift-g": "menu::SelectLast",
-            "g f": "menu::Confirm",
             "i": "git_panel::FocusEditor",
             "ctrl-g c": "git_panel::FocusEditor",
             "ctrl-g ctrl-c": "git_panel::FocusEditor",
@@ -250,19 +264,7 @@
             "[ d": "project_panel::SelectPrevDiagnostic",
             "}": "project_panel::SelectNextDirectory",
             "{": "project_panel::SelectPrevDirectory",
-            "shift-g": "menu::SelectLast",
-            "g g": "menu::SelectFirst",
             "-": "project_panel::SelectParent"
-        }
-    },
-    {
-        "context": "OutlinePanel && not_editing",
-        "bindings": {
-            // ## Movement
-            "h": "menu::SelectNext", // j
-            "t": "menu::SelectPrevious", // k
-            "shift-g": "menu::SelectLast",
-            "g g": "menu::SelectFirst"
         }
     },
     // GitPanel
