@@ -6,22 +6,6 @@
 // To see the default key bindings run `zed: open default keymap`
 // from the command palette.
 [
-    // # Disablement
-    {
-        "context": "Workspace",
-        "bindings": {
-            "ctrl-t": null
-        }
-    },
-    {
-        "context": "Editor",
-        "bindings": {
-            // "pane:CloseActiveItem"
-            "shift-z shift-q": null,
-            "ctrl-t": null
-        }
-    },
-
     // # Cursor Movement
     //
     // Dvorak 配列に変更
@@ -294,12 +278,35 @@
         }
     },
 
+    // # Tab (Pane) Movement
+    //
+    // - Prefix: `ctrl-t`
+    // - `ctrl` のホールドを許容
+    //
+    // | Default | Custom  | Action                       |
+    // | :------ | :------ | :--------------------------- |
+    // | (`[ b`) | `d`     | `pane::ActivatePreviousItem` |
+    // | (`] b`) | `n`     | `pane::ActivateNextItem`     |
+    // | (`Z Q`) | `q`     | `pane::CloseActiveItem`      |
+    //
+    {
+        "context": "(VimControl && !menu) || !Editor",
+        "bindings": {
+            "ctrl-t": null,
+            "ctrl-t d": "pane::ActivatePreviousItem",
+            "ctrl-t ctrl-d": "pane::ActivatePreviousItem",
+            "ctrl-t n": "pane::ActivateNextItem",
+            "ctrl-t ctrl-n": "pane::ActivateNextItem",
+
+            "shift-z shift-q": null,
+            "ctrl-t q": "pane::CloseActiveItem",
+            "ctrl-t ctrl-q": "pane::CloseActiveItem",
+        }
+    },
+
     {
         "context": "(VimControl && !menu) || Editor",
         "bindings": {
-            // ### Pane (Tab)
-            "ctrl-t": "pane::ActivateNextItem",
-            "ctrl-shift-t": "pane::ActivatePreviousItem",
 
             // ## Dock
             "ctrl-d d": "workspace::ToggleLeftDock",
