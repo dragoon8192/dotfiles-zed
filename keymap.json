@@ -186,6 +186,45 @@
         }
     },
 
+    // # Git
+    //
+    // ## normal
+    //
+    // - Prefix: `ctrl-g`
+    // - `ctrl` のホールドを許容
+    //
+    // | Custom    | Action                    |
+    // | :-------- | :------------------------ |
+    // | `s`       | `git::StageAndNext`       |
+    // | `u`       | `git::UnstageAndNext`     |
+    // | `shift-s` | `git::StageAll`           |
+    // | `shift-u` | `git::UnstageAll`         |
+    // | `c`       | `git::ExpandCommitEditor` |
+    //
+    {
+        "context": "vim_mode == normal",
+        "bindings": {
+            "ctrl-g s": "git::StageAndNext",
+            "ctrl-g ctrl-s": "git::StageAndNext",
+            "ctrl-g u": "git::UnstageAndNext",
+            "ctrl-g ctrl-u": "git::UnstageAndNext",
+            "ctrl-g shift-s": "git::StageAll",
+            "ctrl-g ctrl-shift-s": "git::StageAll",
+            "ctrl-g shift-u": "git::UnstageAll",
+            "ctrl-g ctrl-shift-u": "git::UnstageAll",
+            "ctrl-g c": "git::ExpandCommitEditor",
+            "ctrl-g ctrl-c": "git::ExpandCommitEditor",
+        }
+    },
+    // ## CommitEditor
+    {
+        "context": "((GitCommit || CommitEditor) > Editor) && (vim_mode == normal || vim_mode == insert)",
+        "bindings": {
+            "space g": "git::GenerateCommitMessage",
+            "ctrl-g": "git::GenerateCommitMessage"
+        }
+    },
+
     // # Language Server
     //
     // | Default   | Custom    | Action                           |
@@ -211,31 +250,13 @@
         // # Editor VimControl vim_mode == normal
         "context": "vim_mode == normal",
         "bindings": {
-            // ## Git
-            "ctrl-g shift-s": "git::StageAll",
-            "ctrl-g ctrl-shift-s": "git::StageAll",
-            "ctrl-g s": "git::StageAndNext",
-            "ctrl-g ctrl-s": "git::StageAndNext",
-            "ctrl-g shift-u": "git::UnstageAll",
-            "ctrl-g ctrl-shift-u": "git::UnstageAll",
-            "ctrl-g u": "git::UnstageAndNext",
-            "ctrl-g ctrl-u": "git::UnstageAndNext",
-            "ctrl-g c": "git::ExpandCommitEditor",
-            "ctrl-g ctrl-c": "git::ExpandCommitEditor",
-
             // ### File Finder
             "ctrl-p": null,
             "ctrl-p s": "file_finder::Toggle",
             "ctrl-p ctrl-s": "file_finder::Toggle",
             // ### Diagnostic
             "ctrl-p d": "diagnostics::Deploy",
-            "ctrl-p ctrl-d":  "diagnostics::Deploy",
-        }
-    },
-    {
-        "context": "((GitCommit || CommitEditor) > Editor) && (vim_mode == normal || vim_mode == insert)",
-        "bindings": {
-            "ctrl-g a": "git::GenerateCommitMessage"
+            "ctrl-p ctrl-d": "diagnostics::Deploy"
         }
     },
     {
